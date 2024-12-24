@@ -18,3 +18,9 @@ variable "reglas_fw_publica" {
 variable "tipo_instancia_publica" {
   type = string
 }
+variable "access_key" {
+  type = string
+}
+variable "secret_key" {
+  type = string
+}
