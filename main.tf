@@ -39,7 +39,7 @@ resource "aws_internet_gateway" "internet-gw" {
 }
 
 resource "aws_route_table" "rutas_subnet_pub" {
-  vpc_id = aws_vpc.mi_vpc.id  
+  vpc_id = aws_vpc.mi_vpc.id
   depends_on = [ aws_subnet.subnet_publica ]
   route {
     cidr_block = var.ip_publica_local
@@ -52,6 +52,7 @@ resource "aws_route_table" "rutas_subnet_pub" {
 }
 
 resource "aws_route_table_association" "asociacion_subnet" {
+  count = length(var.subnet_publica_cidr)
   route_table_id = aws_route_table.rutas_subnet_pub.id
-  subnet_id = aws_subnet.subnet_publica[*].id
+  subnet_id = aws_subnet.subnet_publica[count.index].id
 }

@@ -33,7 +33,7 @@ resource "aws_security_group" "sg_espana" {
 
 resource "aws_instance" "instancia_publica" {
   ami = data.aws_ami.ami_instancias.id
-  subnet_id = aws_subnet.subnet_publica[*].id
+  subnet_id = aws_subnet.subnet_publica[0].id
   vpc_security_group_ids = [aws_security_group.sg_espana.id]
   instance_type = var.tipo_instancia_publica
   key_name = aws_key_pair.clave_publica.key_name
