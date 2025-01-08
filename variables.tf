@@ -2,7 +2,10 @@ variable "vpc_cidr" {
   type = string
 }
 variable "subnet_publica_cidr" {
-  type = string
+  type = list(object({
+               cidr = string,
+               zone = string
+               }))
 }
 variable "subnet_privada_cidr" {
   type = string
