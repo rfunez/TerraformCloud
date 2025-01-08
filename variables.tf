@@ -21,3 +21,9 @@ variable "reglas_fw_publica" {
 variable "tipo_instancia_publica" {
   type = string
 }
+variable "aws_access_key_id" {
+  type = string
+}
+variable "aws_secret_access_key" {
+  type = string
+}
