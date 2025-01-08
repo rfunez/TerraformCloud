@@ -1,7 +1,7 @@
 vpc_cidr="172.22.20.0/26"
 subnet_publica_cidr=[{cidr = "172.22.20.0/28",
                       zone = "eu-south-2a"},
-                      {cidr = "172.22.20.17/28",
+                      {cidr = "172.22.20.16/28",
                        zone = "eu-south-2b"}]
 subnet_privada_cidr="172.22.20.16/28"
 ip_publica_local = "0.0.0.0/0"
