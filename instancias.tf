@@ -53,6 +53,7 @@ resource "aws_key_pair" "clave_publica" {
   tags = {
      "entorno" = "terraform"
      "tipo"    = "publico"
+     "test" : "test"
   }
 }
 
