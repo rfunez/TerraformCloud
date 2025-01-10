@@ -52,6 +52,7 @@ resource "aws_route_table" "rutas_subnet_pub" {
 }
 
 resource "aws_route_table_association" "asociacion_subnet" {
+  depends_on = [ aws_route_table.rutas_subnet_pub ]
   count = length(var.subnet_publica_cidr)
   route_table_id = aws_route_table.rutas_subnet_pub.id
   subnet_id = aws_subnet.subnet_publica[count.index].id
