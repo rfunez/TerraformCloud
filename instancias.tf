@@ -60,8 +60,10 @@ resource "aws_instance" "instancia_publica" {
 #}
 
 data "aws_key_pair" "instance_key" {
-  key_name = "PublicKey"
-  include_public_key = true
+  filter {
+    name = "tag:nombre"
+    values = ["PublicKey"]
+  }
 }
 
 output "ips_instancia_publica" {
