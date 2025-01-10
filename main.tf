@@ -21,8 +21,8 @@ resource "aws_subnet" "subnet_publica" {
 
 resource "aws_subnet" "subnet_privada" {
   count = length(var.subnet_privada_cidr)
-  availability_zone = var.subnet_privada_cidr.zone
-  cidr_block = var.subnet_privada_cidr.cidr
+  availability_zone = var.subnet_privada_cidr[count.index].zone
+  cidr_block = var.subnet_privada_cidr[count.index].cidr
   vpc_id = aws_vpc.mi_vpc.id
   tags = {
     Name = "SubnetPrivada-${count.index}"
