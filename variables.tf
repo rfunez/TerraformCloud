@@ -8,7 +8,10 @@ variable "subnet_publica_cidr" {
                }))
 }
 variable "subnet_privada_cidr" {
-  type = string
+  type = list(object({
+    cidr = string,
+    zone =  string 
+  }))
 }
 variable "ip_publica_local" {
   type = string

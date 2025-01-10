@@ -20,12 +20,12 @@ resource "aws_subnet" "subnet_publica" {
 }
 
 resource "aws_subnet" "subnet_privada" {
-  availability_zone = "eu-south-2b"
+  count = length(var.subnet_privada_cidr)
+  availability_zone = var.subnet_privada_cidr.zone
+  cidr_block = var.subnet_privada_cidr.cidr
   vpc_id = aws_vpc.mi_vpc.id
-  cidr_block = var.subnet_privada_cidr
   tags = {
-    Name = "SubnetPrivada"
-    tipo= "privada"
+    Name = "SubnetPrivada-${count.index}"
     entorno = "terraform"
   }
 }
